@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js 또는 src/Router.jsx
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import BookDetailPage from './pages/BookDetailPage';
+import RefundPage from './pages/RefundPage';
+
+import OrderHistoryPage from './pages/OrderHistoryPage';
+import ReRentPage from './pages/ReRentPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/order-history" element={<OrderHistoryPage />} />
+        <Route path="/re-rent/:bookId" element={<ReRentPage />} />
+        <Route path="/book/:id" element={<BookDetailPage />} />
+        <Route path="/refund" element={<RefundPage />} />
+
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
+
+
+
+
+
+
